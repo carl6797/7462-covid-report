@@ -99,7 +99,6 @@ Here is a table of the 20 counties with the highest 7-day per 100,000 COVID-19 c
 rate_data %>%
   filter(date == max(date),
          !is.na(rate_last)) %>%
-  arrange(desc(rate_last)) %>%
   select(county, state, pop, rate_last) %>%
   rename(covid_rate = rate_last) %>%
   mutate(covid_rate = round(covid_rate)) %>%
