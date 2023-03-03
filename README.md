@@ -1,7 +1,7 @@
 Minnesota COVID Report
 ================
 
-Report last run: 2023-03-03 17:49:11
+Report last run: 2023-03-03 21:39:41
 
 ## Introduction
 
@@ -53,7 +53,7 @@ top10_pop <- pops %>% filter(state == "Minnesota") %>%
 
 ## Make the plot
 rate_data %>%
-    filter(state == "Minnesota", 
+    filter(state == "Arizona", 
          county %in% top10_pop$county) %>%
   ggplot(aes(x = date, y = rate_last, color = county)) +
   geom_line(linewidth = 2) +
@@ -97,7 +97,6 @@ COVID-19 case rates:
 rate_data %>%
   filter(date == max(date),
          !is.na(rate_last)) %>%
-  arrange(desc(rate_last)) %>%
   select(county, state, pop, rate_last) %>%
   rename(covid_rate = rate_last) %>%
   mutate(covid_rate = round(covid_rate)) %>%
@@ -105,25 +104,25 @@ rate_data %>%
   knitr::kable()
 ```
 
-| county        | state          |    pop | covid_rate |
-|:--------------|:---------------|-------:|-----------:|
-| Loving        | Texas          |    169 |       2367 |
-| Washington    | Mississippi    |  43909 |       1043 |
-| Clark         | Kansas         |   1994 |        802 |
-| Rolette       | North Dakota   |  14176 |        705 |
-| Menominee     | Wisconsin      |   4556 |        658 |
-| Neshoba       | Mississippi    |  29118 |        611 |
-| Rawlins       | Kansas         |   2530 |        593 |
-| Humphreys     | Mississippi    |   8064 |        570 |
-| Traverse      | Minnesota      |   3259 |        552 |
-| Dorchester    | South Carolina | 162809 |        527 |
-| Keweenaw      | Michigan       |   2116 |        520 |
-| Lawrence      | Mississippi    |  12586 |        509 |
-| Madison       | Mississippi    | 106272 |        472 |
-| Walthall      | Mississippi    |  14286 |        469 |
-| Franklin      | Mississippi    |   7713 |        454 |
-| Concho        | Texas          |   2726 |        440 |
-| Warren        | Mississippi    |  45381 |        427 |
-| Marion        | Mississippi    |  24573 |        427 |
-| Oglala Lakota | South Dakota   |  14177 |        423 |
-| Webster       | Mississippi    |   9689 |        413 |
+| county    | state   |    pop | covid_rate |
+|:----------|:--------|-------:|-----------:|
+| Autauga   | Alabama |  55869 |         48 |
+| Baldwin   | Alabama | 223234 |         56 |
+| Barbour   | Alabama |  24686 |         93 |
+| Bibb      | Alabama |  22394 |         89 |
+| Blount    | Alabama |  57826 |         99 |
+| Bullock   | Alabama |  10101 |         50 |
+| Butler    | Alabama |  19448 |        103 |
+| Calhoun   | Alabama | 113605 |         97 |
+| Chambers  | Alabama |  33254 |        102 |
+| Cherokee  | Alabama |  26196 |         69 |
+| Chilton   | Alabama |  44428 |         61 |
+| Choctaw   | Alabama |  12589 |         16 |
+| Clarke    | Alabama |  23622 |         64 |
+| Clay      | Alabama |  13235 |        166 |
+| Cleburne  | Alabama |  14910 |        201 |
+| Coffee    | Alabama |  52342 |        117 |
+| Colbert   | Alabama |  55241 |        119 |
+| Conecuh   | Alabama |  12067 |         83 |
+| Coosa     | Alabama |  10663 |        113 |
+| Covington | Alabama |  37049 |         78 |
